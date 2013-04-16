@@ -11,7 +11,7 @@ Markyun.js
 	 
 	 Author URL: http://weibo.com/920802999  
 	 
-	 github：https://github.com/markyun
+	 github：http://markyun.github.io/Markyun.js
 	 
 	 Version: 1.0
 	 
