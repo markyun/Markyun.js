@@ -1,5 +1,5 @@
 /* 
- JSName: 收集常用的js操作小技巧
+ JSName: 收集常用的js操作小技巧，注意不是一个js框架
  Description:   我常用的js操作技巧。来源于网络中的技术文章和自己工作需要写到的。不断更新中,是帮助我快速和高效开发前端效率的利器。
  Author: markyun
  Email：markyun0802@gmail.com  
