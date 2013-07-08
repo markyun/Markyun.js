@@ -502,4 +502,16 @@ $(document).ready() {
 	})(jQuery);
 
 
-//32、更新中.........
+//32、Jquery操作div的动态效果。
+ $(document).ready(function() {
+             $("#cal").toggle(function() {
+//          $("#w1").hide(1000); 动画隐藏被选的元素
+//          $("#w1").fadeOut(3000); 逐渐改变被选元素的不透明度
+             $("#w1").slideUp();  //调整高度来滑动隐藏被选元素
+  
+  }, function() {
+//    $("#w1").show(1000); 直接显示被选的元素
+       $("#w1").slideDown(); 
+  });
+ }); 
+ //33、更新中.........
