@@ -7,19 +7,19 @@ Markyun.js
 	 
 	 Author: markyun
 	 
-	 Email：markyun0802@gmail.com  
+	 Email： majinyun0802.mark@gmail.com
 	 
 	 Author URL: http://weibo.com/920802999  
 	 
-	 github：http://markyun.github.io/Markyun.js
+	 github ：http://markyun.github.io/Markyun.js
 	 
 	 Version: 1.0
 	 
-	 UpdateTime:2013-4-15
+	 UpdateTime:2013-12-18
 	 
 */
 
 /*JS是“由对象创建对象，由对象定义对象”，而不是“由类创建对象，由类型定义对象”。*/
 
 
-最后更新： 2013年4月16日12点
+最后更新： 2013年12月18日16
