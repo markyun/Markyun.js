@@ -793,10 +793,35 @@ document.write(arr.join("."))
         
         } 
 
-//26———————快速输出的页面的方式——— 
+
+//26———————快速输出的页面的方式
+for (var x in data) {
+        if (data.hasOwnProperty(x)) {
+                str += "<option value='" + x + "'>" + data[x] + "</option>";
+        }...
+}
+
+//27———————2个节点（“li”）交换位置
+$("body").delegate('.nxt', 'click',
+function() {
+        var li = $(this).parents("li");
+        var li2 = $(this).parents("li").next();
+        $(li).insertAfter($(li2));
+        var li3 = $(this).parents("li").prev();
+});
+$("body").delegate('.pre', 'click',
+function() {
+        var li = $(this).parents("li");
+        var li2 = $(this).parents("li").prev();
+        $(li2).insertAfter($(li));
+});
 
 
-//27———————快速输出的页面的方式——— 
+//28——————— 匹配e。给他加个标签 <a href="#"></a> 
+
+a = a.replace(/e/ig,function(match, index){  
+   return ['<a href="#">',match,'</a>'].join('');  
+});  
 
 
-//28———————快速输出的页面的方式——— 
+更新2014年1月6日15:47
