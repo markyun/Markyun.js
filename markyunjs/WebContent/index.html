@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<div id="main">
+		<!--代码开始-->
+		<div class="header">
+			<a href="#" class="logo"> 
+			<!--<img src="images/logo.jpg" alt="Markyun JavaScript Labrary" /> -->
+				<h1 class="title">Markyun JavaScript Labrary</h1>
+			</a>
+			<div class="top">
+				<ul class="menu">
+					<li><a href="index.html">简介</a></li>
+					<li><a href="Base.html">Base</a></li>
+					<li><a href="Dom.html">Dom</a></li>
+					<li><a href="Event.html">Event</a></li>
+					<li><a href="Drag.html">Drag</a></li>
+					<li><a href="Animation.html">Animation</a></li>
+					<li><a href="Ajax.html">AJAX</a></li>
+					<li><a href="Cookie.html">Cookie</a></li>
+					<li><a href="Canvas.html">Canvas</a></li>
+				</ul> 
+			</div>
+		</div>
+
+		<div class="content wrapper">
+			<!--简介部分 -->
+			<div class="demo_title">
+				<a name="jianjie"></a>
+				<h2>简介</h2>
+				<p>Markyun.js是个人练习而开发的一个类似jQuery的JS库，主要是为了更好地提高自己的JS开发熟练度，实现工作上的高效、便利、全面。大小远远小于jQuery、YUI等主流框架。同时，也可以在此基础上扩展，开发新的功能组件，不断完善成为自己定制的JS功能库。</p>
+				<p>Markyun.js目前提供了以下功能：</p>
+				<ol>
+					<li>➤基础功能</li>
+					<li>➤DOM</li>
+					<li>➤Event</li>
+					<li>➤Drag</li>
+					<li>➤简单动画</li>
+					<li>➤Ajax</li>
+					<li>➤Cookie</li>
+					<li>➤Canvas</li>
+					<li>➤功能扩展</li>
+				</ol>
+				<p>另外：正在对JSON、RegExp、HTML5、表单验证、<a href="other.html" title="常用工具" target="_blank" >常用工具</a>等方面进行完善。</p>
+ 
+				<h2>调用方式:</h2>
+				<p>调用markyun.js有2种方式</p>
+				<p>如果开发者习惯jQuery的调用的方式，markyun.js提供的类似jQuery的函数调用，写法如下：</p>
+				<pre>
+				 $(document).ready(function(){
+				 
+				    $("time").style("border","5px solid #bbb").html($.now()); //选择一个节点，为其添加Css样式,支持链式调用
+				    
+				    $.now();获取一个本地格式的当前时间 ："2014年2月10日 11:14:43"
+				     
+				});
+ 			    </pre>
+				<p>
+					以上代码是在DOM加载完成后，获取id为"time"的元素，设置其border，使其可拖放，然后再设置其文本内容为当前时间。<br>
+					markyun.js的使用方法与jQuery的相似度很高，也支持方法链式调用，少量代码可实现较多功能，即简洁又高效。
+					另外，markyun.js也使用了命名空间，实现上与YUI有较多的相似;<br>如果你习惯YUI框架的语法，你也可以这样写：
+				</p>
+				<pre> 
+				
+				//页面加载完成后
+				mark.event.loadEvent(function(){
+				
+				 markyun.dom.id(selector);
+					 
+				 markyun.dom.setStyle(popr,value);
+					
+				 markyun.cookie.getCookie("cookieName");
+				     
+				 markyun(selector).bind("click",function(){
+				     console.log("开始执行");
+				 });
+				}); 
+		 		</pre>
+			</div>
+			<!--简介部分END -->
+
+		</div>
+		
+		<div class="clear"></div>
+		
+		<div class="footer">
+			<p>关注 JavaScript/Jquery/HTML5/CSS3/Node.js</p>
+			<p>Github：<a href="https://github.com/markyun" target="_blank">Markyun</a></p>
+		</div>
+	</div> 
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/markyun.js"></script>
+<style type="text/css">
+.d1 {
+	width: 150px;
+	height: 150px;
+	background: #9F0;
+	float: left;
+}
+
+.d3 {
+	width: 150px;
+	height: 150px;
+	background: pink;
+}
+</style>
+</head>
+<body>
+	<div id="main">
+		<!--代码开始-->
+		<div class="header">
+			<a href="index.html" class="logo"> <!-- <img src="images/logo.jpg" alt="Markyun JavaScript Labrary" /> -->
+				<h1 class="title">Markyun JavaScript Labrary</h1>
+			</a>
+			<div class="top">
+				<ul class="menu">
+					<li><a href="index.html">简介</a></li>
+					<li><a href="#">other</a></li>
+					<ul>   
+     					<li><a href="#">isChinese()</a></li>
+						<li><a href="#">isBoolean()</a></li>
+						<li><a href="#">isFunction()</a></li>
+						<li><a href="#">isNaN()</a></li>
+						<li><a href="#">isNull()</a></li>
+						<li><a href="#">isNumber()</a></li>
+						<li><a href="#">isString()</a></li>
+						<li><a href="#">now()</a></li>
+						<li><a href="#">trim()</a></li>
+					</ul>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="content">
+			<p>other部分功能正在完善中。</p>
+			<!-- demo begin -->
+			<div>
+				<p>$.isChinese()</p>
+				<p>作用：检查传入的字符是否包含中文</p>
+				<p>参数：String类型字符串</p>
+				<p>返回值：true 或 false</p>
+				<div class="demo">
+					<p>
+						示例：<br>检查传入的字符是否包含中文
+					</p>
+					<pre> 
+				$.isChinese("ABC");
+				$.isChinese("中文") ;
+					</pre>
+					<button id="test1">测试1</button>
+					<button id="test2">测试2</button>
+				</div>
+			</div>
+			<!-- demo  end -->
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="footer">
+			<p>关注 JavaScript/Jquery/HTML5/CSS3/Node.js</p>
+			<p>
+				Github：<a href="https://github.com/markyun" target="_blank">Markyun</a>
+			</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$().ready(function() {
+
+			$("test1").bind("click", function() {
+			 alert($.isChinese("abc"));
+			});
+
+			$("test2").bind("click", function() {
+			 alert($.isChinese("中文"));
+			});
+
+		});
+	</script>
+</body>
+</html>

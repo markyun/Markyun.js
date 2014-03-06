@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/markyun.js"></script>
+<style type="text/css"> 
+#main{
+position:static;
+}
+.content{
+position:static;
+}
+.d1{ width:150px; height:150px;background:#9F0; float:left;}
+.d2{ width:110px; height:30px;background:#F60;display:block;padding:0!important;}
+.d3{ width:110px; padding:2px!important; height:110px;background:pink; float:right; }
+
+</style>
+</head>
+<body>
+	<div id="main">
+		<!--代码开始-->
+		<div class="header">
+			<a href="index.html" class="logo"> 
+			<!-- <img src="images/logo.jpg" alt="Markyun JavaScript Labrary" /> -->
+				<h1 class="title">Markyun JavaScript Labrary</h1>
+			</a>
+			<div class="top">
+				<ul class="menu">
+					<li><a href="index.html">简介</a></li>
+					<li><a href="Base.html">Base</a></li>
+					<li><a href="Dom.html">Dom</a></li>
+					<li><a href="Event.html">Event</a></li> 
+					<li><a href="Drag.html">Drag</a></li>
+					
+						<ul>
+							<li><a href="#">$().drag()</a></li>
+						</ul>					
+					<li><a href="Animation.html">Animation</a></li>
+					<li><a href="Ajax.html">AJAX</a></li>
+					<li><a href="Cookie.html">Cookie</a></li>
+					<li><a href="Canvas.html">Canvas</a></li></ul>
+
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="content">
+			<p>Drag部分功能包含：$().drag()</p>
+<!-- demo begin -->
+			<div style="height:700px;"> 
+				<p>$().drag(node)</p>
+				<p>作用：使当前的元素可拖动。</p>
+				<p>参数：参数node可指定一个元素随当前元素可一起移动。</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br> 两个可拖动的层，层1整个可拖动，层2设置 可部分拖动。
+					</p>
+					<pre>
+					
+					    $("demo1").drag();//使当前元素可拖动
+     					$("demo2").drag("demo3");//指定demo3为可拖动层demo2的上层，可随demo2移动
+    					 
+					</pre>
+					<div id="demo1" class="d1">11111</div>
+					<div id="demo3" class="d3">
+						<div id="demo2" class="d2" >22222</div>
+					</div>
+			<div class="clear"></div>
+				</div>
+			<div class="clear"></div>
+			</div>
+<!-- demo  end -->
+ 
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="footer">
+			<p>关注 JavaScript/Jquery/HTML5/CSS3/Node.js</p>
+			<p>
+				Github：<a href="https://github.com/markyun" target="_blank">Markyun</a>
+			</p>
+		</div>
+	</div>
+	<script>
+		//当页面加载完成后
+		$().ready(function() { 
+			//demo1 
+		    $("demo1").drag();//使当前元素可拖动
+		    $("demo2").drag("demo3");//指定demo3为可拖动层demo2的上层，可随demo2移动
+			 
+ 		});
+	</script>
+</body>
+</html>

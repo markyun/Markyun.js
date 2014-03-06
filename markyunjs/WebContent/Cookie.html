@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/markyun.js"></script>
+<style type="text/css"> 
+#demo1{ width:150px; height:50px;background:#ccc;}  
+
+input{
+margin:5px;
+}
+button{
+width:150px!important;
+}
+</style>
+</head>
+<body>
+	<div id="main">
+		<!--代码开始-->
+		<div class="header">
+			<a href="index.html" class="logo"> 
+			<!-- <img src="images/logo.jpg" alt="Markyun JavaScript Labrary" /> -->
+				<h1 class="title">Markyun JavaScript Labrary</h1>
+			</a>
+			<div class="top">
+				<ul class="menu">
+					<li><a href="index.html">简介</a></li>
+					<li><a href="Base.html">Base</a></li>
+					<li><a href="Dom.html">Dom</a></li>
+					<li><a href="Event.html">Event</a></li> 
+					<li><a href="Drag.html">Drag</a></li>				
+					<li><a href="Animation.html">Animation</a></li>
+					<li><a href="Ajax.html">AJAX</a></li>
+					<li><a href="Cookie.html">Cookie</a></li>
+						<ul>
+							<li><a href="#">$.setCookie</a></li>
+							<li><a href="#$.getCookie()">$.getCookie</a></li>
+							<li><a href="#$.delCookie()">$.delCookie</a></li>
+						</ul>	
+					<li><a href="Canvas.html">Canvas</a></li></ul>
+
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="content">
+			<p>Cookie部分功能包含：$.setCookie()、$.getCookie()、$.delCookie()</p>
+<!-- demo begin -->
+			<div> 
+				<p>$.setCookie()</p>
+				<p>作用：设置cookie。</p>
+				<p>参数：options包括name: cookie的名称、value:cookie 值、expires: 生存日期、path:有效路径、domain:域名、secure:是否加密。</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br> 输入cookie的有关信息，可设置、获取、删除cookie;
+					</p>
+					<pre>
+					  $("test1").bind("click",function(){
+					     $.setCookie({
+					           name: $("name").val(), // cookie名字
+					           value: $("value").val(), //cookie内容
+					           expires: $("day").val(), //生存日期
+					           path: "/", //有效路径
+					           domain: "", // 指定域名
+					           secure: false //是否加密
+					       });
+					  });
+					  
+					  $("test2").bind("click",function(){ 
+					          $("demo1").html($.getCookie($("name").val()));//获取cookie  
+ 					          $("demo1").style("background-color","red"); 
+					  });
+					  $("test3").bind("click",function(){ 
+					          $.delectCookie($("name").val());//获取cookie 
+					          $("demo1").html(" "));// 
+					           
+					  });
+    					 
+					</pre>
+					<label for="n">cookie名称：</label><input type="text" id="name" name="name" value="MA" /><br />
+					<label for="v">cookie内容：</label><input type="text" id="value" name="value" value="markyun" /><br />
+					<label for="e">cookie天数：</label><input type="text" id="day" name="day" value="7"/><br />
+					<button id="test1">设置cookie</button>
+					<button id="test2">获取cookie</button>
+					<button id="test3">删除cookie</button>
+					<div class="clear"></div>
+					<div id="demo1">内容区</div>
+				</div>
+			<div class="clear"></div>
+			</div>
+<!-- demo  end -->
+ 
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="footer">
+			<p>关注 JavaScript/Jquery/HTML5/CSS3/Node.js</p>
+			<p>
+				Github：<a href="https://github.com/markyun" target="_blank">Markyun</a>
+			</p>
+		</div>
+	</div>
+	<script>
+		//当页面加载完成后
+		$().ready(function() { 
+			//demo1 
+			 $("test1").bind("click",function(){
+			     $.setCookie({
+			           name: $("name").val(), // cookie名字
+			           value: $("value").val(), //cookie内容
+			           expires: $("day").val(), //生存日期
+			           path: "/", //有效路径
+			           domain: "", // 指定域名
+			           secure: false //是否加密
+			       });
+			  });
+			  
+			  $("test2").bind("click",function(){ 
+			          $("demo1").html($.getCookie($("name").val()));//获取cookie  
+			          $("demo1").style("background-color","red"); 
+			  });
+			  $("test3").bind("click",function(){ 
+			          $.delectCookie($("name").val());//获取cookie 
+			           $("demo1").html("");
+			  });
+			 
+ 		});
+	</script>
+</body>
+</html>

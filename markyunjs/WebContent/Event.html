@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/markyun.js"></script>
+<style type="text/css">
+.d1{float:left; width:20px; height:20px;background:#9F0;}
+.d2{ width:100px; height:100px;margin:0 100px 1em;background:#F60;}
+.d7{ width:100px; height:50px;margin:0 100px 1em;background:#F50;}
+.d8{ width:100px; height:50px;margin:0 100px 1em;background:#F10;}
+#demo3{width:20px;height:20px;background-color:#09C;}
+</style>
+</head>
+<body>
+	<div id="main">
+		<!--代码开始-->
+		<div class="header">
+			<a href="index.html" class="logo"> 
+			<!-- <img src="images/logo.jpg" alt="Markyun JavaScript Labrary" /> -->
+				<h1 class="title">Markyun JavaScript Labrary</h1>
+			</a>
+			<div class="top">
+				<ul class="menu">
+					<li><a href="index.html">简介</a></li>
+					<li><a href="Base.html">Base</a></li>
+					<li><a href="Dom.html">Dom</a></li>
+					<li><a href="Event.html">Event</a></li> 
+						<ul>
+							<li><a href="#">$().bind()</a></li>
+							<li><a href="#getButton">getButton()</a></li>
+							<li><a href="#getMousePos">getMousePos</a></li> 
+							<li><a href="#getCharCode">getCharCode</a></li> 
+						</ul>
+					<li><a href="Drag.html">Drag</a></li>
+					<li><a href="Animation.html">Animation</a></li>
+					<li><a href="Ajax.html">AJAX</a></li>
+					<li><a href="Cookie.html">Cookie</a></li>
+					<li><a href="Canvas.html">Canvas</a></li></ul>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="content wrapper">
+			<p>Event部分功能包含：$().bind()、getButtoon()、getMousePos()、getCharCode()</p>
+<!-- demo begin -->
+			<div> 
+				<p>$().bind(type, handler)</p>
+				<p>作用：为当前元素绑定事件处理。</p>
+				<p>参数：type为事件类型，如”click“，”mouseover"，“blur”等，handler事件触发时执行的操作</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br> 为方块1和按钮绑定单击事件。单击方块1或者单击按钮，可触发事件。
+					</p>
+					<pre>
+					    var i=0;
+					    $("demo1").bind("click",function(){ //为demo1绑定单击事件操作。
+					       $("demo1").html("共单击了"+(++i)+"次~");
+					    });
+					    $("test1").bind("click",function(){//为run1绑定单击事件。
+					       $("demo1").html("单击了div~");
+					    });
+    					 
+						</pre>
+					<div id="demo1" class="d2">bind</div>
+					<div class="clear"></div> 
+					<button id="test1"> 测试bind </button>
+				</div>
+			</div>
+<!-- demo  end -->
+
+<!-- demo begin -->
+			<div>
+			<a name="getButton"></a>
+				<p>getButton</p>
+
+				<p>作用：检查鼠标的那个健被点击</p>
+				<p>参数：无。</p>
+				<p>返回值：返回被按下的鼠标键值。 1是中间的滚轮，2是右键，0为左键。</p>
+				<div class="demo">
+					<p>
+						示例：<br>判断鼠标的那个健被点击了？
+					</p>
+					<pre>
+					
+					 $("test6").bind("click",function(e) {
+							var event = markyun.Event.getEvent(e);//得到统一的event
+							var button = markyun.Event.getButton(event);//鼠标那个健被点击了？
+							var bt;
+							if (button === 0) {
+								bt = "鼠标左键";
+							} else if (button === 2) {
+								bt = "鼠标右键"
+							} else if (button === 1) {
+								bt = "鼠标滚轮";
+							} 
+							$("demo7").html("第" + (++i) + "次按下~:然后" + bt + "被点击了!");
+						});
+    					 
+						</pre>
+					<div id="demo7" class="d7 markyun">"markyun"</div> 
+					<button id="test6">测试</button>
+				</div>
+			</div>
+<!-- demo  end -->
+<!-- demo begin -->
+			<div>
+			<a name="getMousePos"></a>
+				<p>$().getMousePos(event)</p>
+				<p>作用：获取当前鼠标的坐标位置。</p>
+				<p>参数：event</p>
+				<p>返回值：返回一个长度为2的数组，分别为水平X和垂直Y坐标。</p>
+				<div class="demo">
+					<p>
+						示例：<br>获取当前鼠标的位置
+					</p>
+					<pre>
+					
+					 $().bind("mousemove",function(event){ 
+					       var m=$().getMousePos(event);
+					       $("demo4").html("当前鼠标的(X位置:"+m[0]+",y位置:"+m[1]+")");
+					 });
+    					 
+					</pre>
+					鼠标位置：
+					<div id="demo4" style="background-color: #ccc;">鼠标位置</div>  
+				</div> 
+			 </div>
+<!-- demo  end -->
+  			 
+<!-- demo begin -->
+			<div>
+			<a name="getCharCode"></a>
+				<p>.getCharCode(event)</p>
+				<p>作用：取得Keypress事件时，获取按下键的ASCII编码。</p>
+				<p>参数：event</p>
+				<p>返回值：返回一个按下键的ASCII编码。</p>
+				<div class="demo">
+					<p>
+						示例：<br>获取当前鼠标的位置
+					</p>
+					<pre>
+					
+					$("demo5").bind("keypress", function(e) {
+						var event = markyun.Event.getEvent(e);
+						var keyCode = markyun.Event.getCharCode(event);//按下那个健的ASCII编码
+						$("demo6").html("按键是内容是：" + keyCode) 
+					});
+    					 
+					</pre>
+					请输入字符：<input name="code" type="text" id="demo5" /><br>
+					<div id="demo6" style="background-color: #ccc;">按键值</div>  
+				</div> 
+			 </div>
+<!-- demo  end -->
+  			 
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="footer">
+			<p>关注 JavaScript/Jquery/HTML5/CSS3/Node.js</p>
+			<p>
+				Github：<a href="https://github.com/markyun" target="_blank">Markyun</a>
+			</p>
+		</div>
+	</div>
+	<script>
+		//当页面加载完成后
+		$().ready(function() {
+
+			//demo1 
+			var i=0;
+		    $("demo1").bind("click",function(){ //为block1绑定单击事件操作。
+		       $("demo1").html("共单击了"+(++i)+"次~");
+		    });
+		    $("test1").bind("click",function(){//为run1绑定单击事件。
+		       $("demo1").html("单击了1div~");
+		    });	 
+
+			//demo2
+		 	  $(document).bind("mousemove",function(event){ 
+		       var m=$().getMousePos(event);
+		       $("demo4").html("当前鼠标的(X位置:"+m[0]+",y位置:"+m[1]+")");
+			 });
+			
+			//demo3 
+			$("test6").bind("click",function(e) {
+				var event = markyun.Event.getEvent(e);//得到统一的event
+				var button = markyun.Event.getButton(event);//鼠标那个健被点击了？
+				var bt;
+				if (button === 0) {
+					bt = "鼠标左键";
+				} else if (button === 2) {
+					bt = "鼠标右键"
+				} else if (button === 1) {
+					bt = "鼠标滚轮";
+				}
+
+				$("demo7").html("单击了" + (++i) + "次~:然后" + bt + "被点击了!");
+			});
+			
+			//demo4
+			$("demo5").bind("keypress", function(e) {
+				var event = markyun.Event.getEvent(e);
+				var keyCode = markyun.Event.getCharCode(event);//按下那个健的ASCII编码
+				console.log(keyCode);
+				$("demo6").html("按键是内容是：" + keyCode) 
+			});
+			
+ 		});
+	</script>
+</body>
+</html>

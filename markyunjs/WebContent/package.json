@@ -1,0 +1,23 @@
+{
+  "name": "markyun.js",
+  "family": "markyun",
+  "description": "Markyun JavaScript Labrary",
+  "version": "1.0.1",
+  "package": "",
+  "homepage": "HTTP://JSUED.COM",
+  "author": {
+    "name": "majinyun",
+    "url": "https://github.com/markyun/master/AUTHORS.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com"
+  },
+  "bugs": {
+    "url": "http://bugs.jsued.com"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/markyun/master/MIT-LICENSE.txt"
+  }]
+}

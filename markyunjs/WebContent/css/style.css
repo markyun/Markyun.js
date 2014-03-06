@@ -1,0 +1,237 @@
+@charset "utf-8";
+/*-reset-*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,textarea,th,td,img
+	{
+	border: medium none;
+	margin: 0;
+	padding: 0;
+}
+/** 设置默认字体 **/
+body,button,input,select,textarea {
+	font: 12px/1.5 Verdana, '宋体', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	background-color: #ddd;
+}
+
+em {
+	font-style: normal;
+}
+/*重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1
+}
+
+div {
+	margin: 0 auto
+}
+
+ul,ol,li {
+	list-style: none
+}
+
+a {
+	text-decoration: none;
+	word-wrap: break-word
+}
+
+/* a:hover { */
+/* 	text-decoration: underline */
+/* } */
+img {
+	border: 0
+}
+
+p {
+	line-height: 26px
+}
+
+/* 框架 */
+#main {
+	width: 1160px;
+	background-color: #FFF;
+	position: relative
+}
+.content{
+	position:relative;
+	float:right;
+	width: 1010px;  
+	background-color:#FFF;
+	z-index:3
+}
+.content>div{
+	border: 1px solid #222;
+	border-radius:5px;
+	margin: 10px 0 0 0
+}
+/* logo */
+.header {
+	width: 1160px;
+	height: 105px
+}
+.header .logo img {
+	width: 446px;
+	height: 42px;
+	position: absolute;
+	top: 20px;
+	left: 12px
+}
+
+.header h1 {
+	font-size: 60px; 
+    font-family: 'JennaSue';
+    width: 1160px;
+    background-color:#fff;
+    color:#000
+}
+
+  /* 按兼容要求配置 src url */
+    @font-face {
+      font-family: 'JennaSue';/* 字体名，可自定义 */
+      src: url('JennaSue.eot'); /* fix ie9 */
+      src: url('JennaSue.eot?#iefix') format('eot'),/* ie4~ie8*/
+           url('JennaSue.ttf') format('truetype');/* modern browser safari in iOS */
+    }
+    .sl-fontface {
+      font-family: 'JennaSue';
+      font-size: 60px;
+      line-height: 100px
+    }
+
+.header_r {
+	margin-left: 110px
+}
+/*导航*/
+.menu {
+	font-family: "Microsoft Yahei", Tahoma, Geneva, sans-serif;
+	padding: 1px;
+	_overflow: hidden
+}
+
+.menu a {
+	color: #fff
+}
+
+.top {
+	position: fixed;
+	background: #333;
+	z-index: 2;
+	width: 144px;
+	color: #fff;
+	font-size: 16px;
+	margin-top: 112px
+}
+.title{
+	position: fixed;
+	float: left;
+	z-index: 2;
+}
+
+.menu li {
+	font-size: 16px;
+	position: relative;
+	padding: 6px 10px; 
+}
+
+.menu li:hover {
+	background-color: #fff;
+/* 	border-bottom:4px solid #f27f02; */
+}
+
+.menu li:hover a {
+	color: #357d13
+}
+
+.menu ul {
+	width: 125px;
+	background-color: #122;
+	border: 1px solid #fff;
+/* 	border-top: none; */
+	position: relative;
+	left: 8px
+}
+
+. /*IE6*/
+.menu li.hover {
+	background-color: #fff;
+	border: 1px solid #629d2a
+}
+
+/*按钮*/
+ button {
+	overflow: visible;
+	margin: 10px 0 0 0;
+	border: 0;
+	cursor: pointer;
+	height: 40px;
+	width: 100px;
+	font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 5px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .3)
+}
+
+ button:hover {
+	background: #e54040
+}
+.content  div{
+	padding: 10px;
+} 
+
+.demo_title li{
+	 margin: 10px 0
+}
+.demo_title ol{
+	color:#d83c3c
+}
+pre {
+  margin: 10px 0 10px 0;
+  width: auto;
+  float: none;
+  clear: none;
+  overflow: visible;
+  font-size: 12px;
+  line-height: 1.333;
+  white-space: pre;
+  background-color: #666;
+  color: #fff;
+  border-radius:5px
+}
+.clear{
+ clear: both
+}
+/*脚部*/
+.footer{
+	padding: 10px;
+	text-align: center
+} 
+
+/*实例样式*/
+
+.content .attr{
+	background-color: #aaa;
+	height: 20px;
+	width: 100px;
+	margin:  10px 0 0 0	
+}

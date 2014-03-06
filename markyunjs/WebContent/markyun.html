@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<!--<link rel="stylesheet" media="all" href="style.css">  -->
+<script src="js/markyun.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+#block1,#block2 {
+	width: 200px;
+	height: 100px;
+	background: #9F0;
+}
+  canvas {
+            background: #ffffff
+        }
+
+
+#block2 {
+	background: #F60;
+	margin-top: 5px;
+}
+</style>
+</head>
+<body>
+	<div>
+		<p class="">markyun</p>
+	</div>
+	<div id="block1">1我的边框和背景颜色是在页面加载后才添加上去的哦~</div>
+	<hr>
+    <canvas id="time" width="300px;" height="300px"></canvas>
+
+
+
+	<div id="block2">1</div>
+	<input type="text" name="demo" value="" id="textinput" />
+	<div id="btn"></div>
+	<div id="ssssss">sss</div>
+
+	<div class="demo_show">
+		<p>
+			示例：<br /> 输入cookie的有关信息，可设置、获取、删除cookie；
+		</p>
+
+		<label for="n">设置cookie名称：</label> <input type="text" id="cookie"
+			name="n" value="wikyssssssssssssss" /><br />
+		<button id="run1">设置cookie</button>
+
+		<button id="run2">获取cooking</button>
+
+		<button id="run3">删除cookie</button>
+
+	</div>
+
+</body>
+<script type="text/javascript">
+
+	$().ready( 
+			function() { 
+// 				markyun.fn.noConflict();
+		 		console.log(markyun.now());  
+		 		
+		 		markyun("body").bind("mousemove", function(e) {
+					var m =markyun().getMousePos(e);
+					markyun("ssssss").html("当前鼠标的位置(X:" + m[0] + ",y:" + m[1] + ")");
+				}); 
+				var i = 0;
+				$("block2").bind(
+						"click",
+						function(e) { //为block1绑定单击事件操作。
+							var event = markyun.Event.getEvent(e);
+							var button = markyun.Event.getButton(event);//鼠标那个健被点击了？
+							var bt;
+							if (button === 0) {
+								bt = "鼠标左键";
+							} else if (button === 2) {
+								bt = "鼠标右键"
+							} else if (button === 1) {
+								bt = "鼠标滚轮";
+							}
+
+							$("block2").html(
+									"单击了" + (++i) + "次~:然后" + bt + "被点击了!"
+											+ markyun.VERSION);
+						});
+
+				$("textinput").bind("keypress", function(e) {
+					var event = markyun.Event.getEvent(e);
+					var keyCode = markyun.Event.getCharCode(event);//按下那个健的ASCII编码
+					console.log(keyCode);
+					$("btn").html("按键是内容是：" + keyCode)
+					alert($("nss").val());
+				});
+
+			});
+
+	$("run1").bind("click", function() {
+ 		markyun.cookie.setCookie({
+			name : $("cookie").val(), // cookie名字 
+			value : "demosssss", //cookie 值
+			expires : "91", //生存日期
+			path : "/", //有效路径
+			domain : ""  // 指定域名 
+		//是否加密
+		});
+ 		
+	});
+	// 		alert( $.getCookie("cookie").val());
+	$("run2").bind("click", function() {
+		alert(markyun.cookie.getCookie($("cookie").val()));//获取cookie
+	});
+	$("run3").bind("click", function() {
+		markyun.cookie.delectCookie($("cookie").val());//删除cookie
+		alert(markyun.cookie.getCookie($("cookie").val()));//获取cookie
+
+	});
+</script>
+
+</html>

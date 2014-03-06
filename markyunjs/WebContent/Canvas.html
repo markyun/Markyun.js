@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/markyun.js"></script>
+</head>
+<body>
+	<div id="main">
+		<!--代码开始-->
+		<div class="header">
+			<a href="index.html" class="logo"> <!-- <img src="images/logo.jpg" alt="Markyun JavaScript Labrary" /> -->
+				<h1 class="title">Markyun JavaScript Labrary</h1>
+			</a>
+			<div class="top">
+				<ul class="menu">
+					<li><a href="index.html">简介</a></li>
+					<li><a href="Base.html">Base</a></li>
+					<li><a href="Dom.html">Dom</a></li>
+					<li><a href="Event.html">Event</a></li>
+					<li><a href="Drag.html">Drag</a></li>
+					<li><a href="Animation.html">Animation</a></li>
+					<li><a href="Ajax.html">AJAX</a></li>
+					<li><a href="Cookie.html">Cookie</a></li>
+					<li><a href="Canvas.html">Canvas</a></li>
+				<ul>
+					<li><a href="#">time()</a></li>
+				</ul>
+
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="content">
+			<p>canvas部分功能包含：time().....[待完善]</p>
+			<!-- demo begin -->
+			<div>
+				<p>markyun.canvas.time()</p>
+				<p>作用：使用canvas 绘制一个简单时钟</p>
+				<p>参数：无</p>
+				<p>返回值：创建一个canvas时钟。</p>
+				<div class="demo">
+					<p>
+						示例：<br>canvas时钟
+					</p>
+					<pre> 
+					markyun.canvas.time();
+					</pre>
+				 <button id="test1">测试</button>
+				
+				<canvas id="time" width="300px;" height="300px"></canvas>
+				</div>
+			</div>
+			<!-- demo  end -->
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="footer">
+			<p>关注 JavaScript/Jquery/HTML5/CSS3/Node.js</p>
+			<p>
+				Github：<a href="https://github.com/markyun" target="_blank">Markyun</a>
+			</p>
+		</div>
+	</div>
+<script type="text/javascript">
+$().ready(function(){
+	
+	$("test1").bind("click",function(){
+		markyun.canvas.time();
+	});
+	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/markyun.js"></script>
+<style type="text/css">
+.d1{float:left; width:20px; height:20px;background:#9F0;}
+.d2{ width:100px; height:100px;margin:0 100px 1em;background:#F60;}
+.d7{ width:100px; height:50px;margin:0 100px 1em;background:#F50;}
+.d8{ width:100px; height:50px;margin:0 100px 1em;background:#F10;}
+#demo3{width:20px;height:20px;background-color:#09C;}
+</style>
+</head>
+<body>
+	<div id="main">
+		<!--代码开始-->
+		<div class="header">
+			<a href="index.html" class="logo"> 
+			<!-- <img src="images/logo.jpg" alt="Markyun JavaScript Labrary" /> -->
+				<h1 class="title">Markyun JavaScript Labrary</h1>
+			</a>
+			<div class="top">
+				<ul class="menu">
+					<li><a href="index.html">简介</a></li>
+					<li><a href="Base.html">Base</a></li>
+					<li><a href="Dom.html">Dom</a></li>
+						<ul>
+							<li><a href="#">pageXY()</a></li>
+							<li><a href="#$().style()">style()</a></li>
+							<li><a href="#$().hasClass()">hasClass()</a></li>
+							<li><a href="#$().addClass()">addClass()</a></li>
+							<li><a href="#$().removeClass()">removeClass</a></li>
+							<li><a href="#$().setOpacity()">setOpacity()</a></li>
+						</ul>
+					<li><a href="Event.html">Event</a></li>
+					<li><a href="Drag.html">Drag</a></li>
+					<li><a href="Animation.html">Animation</a></li>
+					<li><a href="Ajax.html">AJAX</a></li>
+					<li><a href="Cookie.html">Cookie</a></li>
+					<li><a href="Canvas.html">Canvas</a></li></ul>
+			</div>
+		</div>
+
+		<div class="content wrapper">
+			<p>Dom基础部分功能包含：$().pageXY(pos)、$().style()、$().hasClass()、$().addClass()、$().removeClass()、$().setOpacity()
+			</p>
+			
+<!-- demo begin -->
+			<div>
+				<p>$().pageXY(pos)</p>
+				<p>作用：获取或设置元素相对页面的水平和垂直坐标。</p>
+				<p>参数：参数可以为空或者是一个两个子项的数组，当参数为空时，可获取坐标；参数为数组时，可设置坐标。</p>
+				<p>返回值：参数为空时，返回值是指向当前元素的对象；参数为数组时，返回一个包含当前元素坐标的数组。</p>
+				<div class="demo">
+					<p>
+						示例：<br> 获取方块2的坐标，并设置给方块1。
+					</p>
+					<pre>
+					
+						 $("test1").bind("click",function(){ 
+       						 $("demo1").pageXY($("demo2").pageXY()); //先获取demo1的坐标，再设置给demo2
+    					 });
+    					 
+						</pre>
+					<div id="demo1" class="d1">1</div>
+					<div id="demo2" class="d2">1</div> 
+					<button id="test1"> 测试一 </button>
+				</div>
+				<div class="demo">
+					<p>
+						示例：<br> 使得在鼠标按下时，把当前鼠标的坐标位置设置给DIV3。
+					</p>
+					<pre>
+					
+						$("test2").bind("click",function(e){
+					        $(document).bind("click",function(e){
+					            $("demo3").pageXY($().getMousePos(e)); //获取鼠标坐标，设置给demo3
+					        })
+					    });
+
+						</pre>
+					<div id="demo3" >DIV3</div>
+					<button id="test2">测试二</button>
+				</div>
+			</div>
+<!-- demo  end -->
+<!-- demo begin -->
+			<div>
+			<a name="$().style()"></a>
+				<p>$().style(prop, val)</p>
+				<p>作用：获取或设置元素的指定样式属性。</p>
+				<p>参数：prop为样式属性名称，val为样式属性的值，当val为空时，可获取当前元素的样式属性prop的值；当val不为空时，把当前元素样式属性prop值设置为val。</p>
+				<p>返回值：val为空时，返回当前元素的样式属性prop的值；val不为空时，返回值是指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br>获取方块2的背景颜色，并设置给方块1
+					</p>
+					<pre>
+					
+					 $("test3").bind("click",function(){  
+						        var rbg=$("demo1").style("backgroundColor"); 
+						        $("demo2").style("backgroundColor",rbg); 
+					 });
+    					 
+						</pre>
+					<div id="demo4" class="d1">2</div>
+					<div id="demo5" class="d2">1</div> 
+					<button id="test3"> 测试一 </button>
+				</div>
+				<div class="demo">
+					<p>
+						示例：<br> 设置方块3的宽度为原来的2倍。
+					</p>
+					<pre>
+					
+					 $("test4").bind("click",function(){
+					        var w=parseInt($("demo6").style("width")); 
+					        $("demo6").style("width",w*2+"px"); //再乘以2 
+					 });
+
+						</pre>
+					<div id="demo6" class="d1">DIV3</div>
+					 <div class="clear"></div>
+					<button id="test4">测试二</button>
+				</div>
+			</div>
+<!-- demo  end -->
+
+<!-- demo begin -->
+			<div>
+			<a name="$().hasClass()"></a>
+				<p>$().hasClass(className)</p>
+
+				<p>作用：验证当前元素是否具有指定的class。</p>
+				<p>参数：className为类的名字。</p>
+				<p>返回值：返回一个布尔值。</p>
+				<div class="demo">
+					<p>
+						示例：<br>判断元素是否具有"markyun"的class并弹出结果。
+					</p>
+					<pre>
+					
+				 $("test5").bind("click",function(){  
+				        alert($("demo7").hasClass("markyun")); //判断并弹出结果
+				 });
+				 $("test6").bind("click",function(){
+					        alert($("demo8").hasClass("markyun")); 
+				 });
+    					 
+						</pre>
+					<div id="demo7" class="d7 markyun">1 "markyun"</div>
+					<div id="demo8" class="d8 ">2</div> 
+					<button id="test5"> 测试1 </button>
+					<button id="test6"> 测试2</button>
+				</div>
+			</div>
+<!-- demo  end -->
+<!-- demo begin -->
+			<div> 
+			<a name="$().addClass()"></a>
+				<p>$().addClass(className)</p> 
+				<p>作用：给当前元素添加指定的class。</p>
+				<p>参数：className为类的名字。</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br>分别给demo9和demo10添加名为book的class并弹出它们的className属性。
+
+					</p>
+					<pre>
+					
+				 $("test7").bind("click",function(){  
+			        alert($("demo9").addClass("book").get("className")); //判断并弹出结果
+				 });
+				 
+				 $("test8").bind("click",function(){
+					        alert($("demo10").addClass("book").get("className"));  
+				 });		 
+						</pre>
+					<div id="demo9" class="d7">1</div>
+					<div id="demo10" class="d8 ">2</div> 
+					<button id="test7"> 方块1 </button>
+					<button id="test8"> 方块2</button>
+				</div>
+			</div>
+<!-- demo  end -->
+<!-- demo begin -->
+			<div> 
+			<a name="$().removeClass()"></a>
+				<p>$().removeClass(className)</p> 
+				<p>作用：移除当前元素指定的class，如果没有找到指定的className，则直接返回。</p>
+				<p>参数：className为类的名字。</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br>分别移除demo11和demo12上名为book的class并弹出它们的className属性。
+					</p>
+					<pre>
+					
+				 $("test9").bind("click",function(){  
+			        	alert($("demo9").removeClass("book").get("className")); //判断并弹出结果
+				 });
+				 
+				 $("test10").bind("click",function(){
+					    alert($("demo10").removeClass("book").get("className"));  
+				 });		 
+						</pre>
+					<div id="demo11" class="d7 book">1 book</div>
+					<div id="demo12" class="d8 ">2</div> 
+					<button id="test9"> 方块1</button>
+					<button id="test10"> 方块2</button>
+				</div>
+			</div>
+<!-- demo  end -->
+<!-- demo begin -->
+			<div> 
+			<a name="$().setOpacity()"></a>
+				<p>$().setOpacity(level)</p> 
+				<p>作用：设置当前元素的透明度。</p>
+				<p>参数：level为透明度，有效值为0-100。</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br>将div设置为半透明
+					</p>
+					<pre>
+					  $("test11").bind("click",function(){
+					       $("demo13").setOpacity(50).html("我是50%半透明的");//设置为半透明，并写入文字
+					    });	 
+						</pre> 
+					<div id="demo13" class="d8"></div>  
+					<button id="test11"> 测试透明</button>
+				</div>
+			</div>
+<!-- demo  end -->
+			 
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="footer">
+			<p>关注 JavaScript/Jquery/HTML5/CSS3/Node.js</p>
+			<p>
+				Github：<a href="https://github.com/markyun" target="_blank">Markyun</a>
+			</p>
+		</div>
+	</div>
+	<script>
+		//当页面加载完成后
+		$().ready(function() {
+
+			//demo1
+			 $("test1").bind("click",function(){ 
+   						 $("demo1").pageXY($("demo2").pageXY()); //先获取demo1的坐标，再设置给demo2
+			 });
+
+			 $("test2").bind("click",function(e){
+		        $(document).bind("click",function(e){
+		            $("demo3").pageXY($().getMousePos(e)); //获取鼠标坐标，设置给demo3
+		        })
+		     });  	 
+
+			//demo2
+		 	 $("test3").bind("click",function(){  
+			        var rbg=$("demo4").style("backgroundColor"); 
+			        $("demo5").style("backgroundColor",rbg);  
+			 });
+		 	$("test4").bind("click",function(){
+		        var w=parseInt($("demo6").style("width")); 
+		        $("demo6").style("width",w*2+"px"); //再乘以2，设置给demp6的宽度
+		    });
+			
+			//demo3
+			 $("test5").bind("click",function(){  
+				        alert($("demo7").hasClass("markyun")); //判断并弹出结果
+			 });
+			 $("test6").bind("click",function(){
+				        alert($("demo8").hasClass("markyun")); 
+			 });
+			
+			//demo4
+			 $("test7").bind("click",function(){  
+			        alert($("demo9").addClass("book").get("className")); //判断并弹出结果
+			 });
+			 $("test8").bind("click",function(){
+				        alert($("demo10").addClass("book").get("className"));
+			 });
+			 //demo5
+			 $("test9").bind("click",function(){  
+		        	alert($("demo9").removeClass("book").get("className"));  
+			 });
+			 
+			 $("test10").bind("click",function(){
+				    alert($("demo10").removeClass("book").get("className"));  
+			 });
+		   
+			 //demo6
+			 $("test11").bind("click",function(){
+			       $("demo13").setOpacity(50).html("我是50%半透明的");//设置为半透明，并写入文字
+			 });	
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markyun JavaScript Labrary</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/markyun.js"></script>
+<style type="text/css">  
+.d1{ width:150px; height:150px;background:#9F0; float:left;} 
+.d2{ width:150px; height:150px;background:#5F0; } 
+.d3{ width:150px; height:150px;background:pink; } 
+</style>
+</head>
+<body>
+	<div id="main">
+		<!--代码开始-->
+		<div class="header">
+			<a href="index.html" class="logo"> 
+			<!-- <img src="images/logo.jpg" alt="Markyun JavaScript Labrary" /> -->
+				<h1 class="title">Markyun JavaScript Labrary</h1>
+			</a>
+			<div class="top">
+				<ul class="menu">
+					<li><a href="index.html">简介</a></li>
+					<li><a href="Base.html">Base</a></li>
+					<li><a href="Dom.html">Dom</a></li>
+					<li><a href="Event.html">Event</a></li> 
+					<li><a href="Drag.html">Drag</a></li>
+					<li><a href="Animation.html">Animation</a></li>
+						<ul>
+							<li><a href="#">$().fadeIn()</a></li>
+							<li><a href="#$().fadeOut()">$().fadeOut()</a></li>
+							<li><a href="#$().slide()">$().slide()</a></li>
+							<li><a href="#$().slideUp()">$().slideUp()</a></li>
+							<li><a href="#$().slideDown()">slideDown</a></li>
+						</ul>	
+					<li><a href="Ajax.html">AJAX</a></li>
+					<li><a href="Cookie.html">Cookie</a></li>
+					<li><a href="Canvas.html">Canvas</a></li></ul>
+
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="content">
+			<p>Animation部分功能包含：$().fadeIn()、$().fadeOut()、$().slide()、$().slideUp()、$().slideDown()</p>
+<!-- demo begin -->
+			<div > 
+				<p>$().fadeIn()</p>
+				<p>作用：使当前的元素淡入。</p>
+				<p>参数：无</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br> 使当前的元素淡入。
+					</p>
+					<pre>
+					 $("test1").bind("click",function(){
+					       $("demo1").fadeIn(); 
+					    });
+					</pre>
+					<div id="demo1" class="d1"></div> 
+					<div class="clear"></div>
+		 			<button id="test1">测试</button>
+				</div>
+ 			</div>
+<!-- demo  end -->
+<!-- demo begin -->
+			<div > 
+			<a name="$().fadeOut()"></a>
+				<p>$().fadeOut()</p>
+				<p>作用：使当前的元素淡出。</p>
+				<p>参数：无</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>
+						示例：<br> 使当前的元素淡出。
+					</p>
+					<pre>
+					   $("test2").bind("click",function(){
+					      $("demo2").fadeOut(); 
+					 });
+					</pre>
+					<div id="demo2" class="d1"></div> 
+					<div class="clear"></div>
+		 			<button id="test2">测试</button>
+				</div>
+ 			</div>
+<!-- demo  end -->
+<!-- demo begin -->
+			<div > 
+			<a name="$().slide()"></a>
+				<p>$().slide(options)</p>
+				<p>为当前元素设定滑动效果。</p>
+				<p>参数：options为滑动的属性，包括prop(值height或者width，设定元素滑动的属性，默认为height)、from(开始滑动的位置，默认为当前元素高度)、to(滑动至位置距离，默认为0)、duration(滑动的持续时间，默认为一秒即1000)。</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>示例：<br>使得方块1平稳向左滑动至300px，方块2向上快速滑动至50px。使当前的元素淡出。
+					</p>
+					<pre>
+					  $("test3").bind("click",function(){
+					  
+					       var opt1={prop:"width", to:300};//设置demo3的滑动属性。
+					       $("demo3").slide(opt1);//使block1平稳向左滑动至300px。
+					       
+					       var opt2={to:50, duration:2500}; 
+					       $("demo4").slide(opt2);//使demo4向上快速滑动至50px。
+					       
+					  });
+					</pre>
+					<div id="demo3" class="d1"></div> 
+					<div id="demo4" class="d3"></div> 
+					<div class="clear"></div>
+		 			<button id="test3">测试</button>
+				</div>
+ 			</div>
+<!-- demo  end -->
+<!-- demo begin -->
+			<div > 
+			<a name="$().slideUp()"></a>
+				<p>$().slideUp(options)</p>
+				<p>作用：使得当前元素收起。</p> 
+				<p>参数：speed为元素收起的速度，为空则默认为一秒种，可选速度有”fast“，”slow“，或者自定义数字，一秒种则为1000。</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>示例：<br>使得方块1和方块2分别平稳和快速收起。
+					</p>
+					<pre>
+					    $("test4").bind("click",function(){
+					       $("demo5").slideUp();//平稳收起。
+					       $("demo6").slideUp("fast");//快速收起。
+					    });
+					</pre>
+					<div id="demo5" class="d1"></div> 
+					<div id="demo6" class="d3"></div> 
+					<div class="clear"></div>
+		 			<button id="test4">测试</button>
+				</div>
+ 			</div>
+<!-- demo  end -->
+ 
+<!-- demo begin -->
+			<div > 
+			<a name="$().slideDown()"></a>
+				<p>$().slideDown(speed, to)</p>
+				<p>作用：使得当前元素展开。</p> 
+				<p>参数：speed为元素展开的速度，为空则默认为一秒种，可选速度有”fast“，”slow“，或者自定义数字，一秒种则为1000。to为展开至的高度。</p>
+				<p>返回值：返回一个指向当前元素的对象。</p>
+				<div class="demo">
+					<p>示例：<br>使得方块1、方块2分别平稳和慢速展开，方块3快速展开到的指定高度。
+					</p>
+					<pre>
+					    $("test5").bind("click",function(){
+					       $("demo7").slideDown();//平稳展开。
+					       $("demo8").slideDown("slow");//慢速展开。
+					       $("demo9").slideDown("fast",100);//快速展开至200px。
+					    });
+					</pre>
+					<div id="demo7" class="d1"> </div> 
+					<div id="demo8" class="d3"> </div> 
+					<div id="demo9" class="d2"> </div> 
+					<div class="clear"></div>
+		 			<button id="test5">测试</button>
+				</div>
+ 			</div>
+<!-- demo  end -->
+ 
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="footer">
+			<p>关注 JavaScript/Jquery/HTML5/CSS3/Node.js</p>
+			<p>
+				Github：<a href="https://github.com/markyun" target="_blank">Markyun</a>
+			</p>
+		</div>
+	</div>
+	<script>
+		//当页面加载完成后
+		$().ready(function() { 
+			
+			//demo1 
+			 $("test1").bind("click",function(){
+			       $("demo1").fadeIn(); 
+			 });	
+			 
+			$("demo2").setOpacity(0);//设置元素透明度为0
+			//demo2
+		     $("test2").bind("click",function(){
+			      $("demo2").fadeOut(); 
+			 });
+			//demo3
+			   $("test3").bind("click",function(){
+					  
+			       var opt1={prop:"width", to:300};//设置demo3的滑动属性。
+			       $("demo3").slide(opt1);//使block1平稳向左滑动至300px。
+			       
+			       var opt2={to:50, duration:2500}; 
+			       $("demo4").slide(opt2);//使demo4向上快速滑动至50px。
+			       
+			  });
+			 //demo4
+			   $("test4").bind("click",function(){
+			       $("demo5").slideUp();//平稳收起。
+			       $("demo6").slideUp("fast");//快速收起。
+			    });
+			 //demo5
+			   $("test5").bind("click",function(){
+			       $("demo7").slideDown();//平稳展开。
+			       $("demo8").slideDown("slow");//慢速展开。
+			       $("demo9").slideDown("fast",50);//快速展开至200px。
+			    });
+ 		});
+	</script>
+</body>
+</html>
