@@ -677,13 +677,6 @@
 		// 去除2端空格
 		trim : function(str) {
 			return str.replace(/^\s+|\s+$/g, '');
-		},
-
-		//
-		parseJSON: function( data ) { 
-			if ( window.JSON && window.JSON.parse ) {
-				return window.JSON.parse( data );
-			} 
 		} 
 	};
 	// cooki工具集
@@ -811,8 +804,8 @@
 	};
 	// canvas工具，只包含2d部分，3d暂未实现
 	markyun.canvas = {
-		// 画一个针式时钟，调用此方法时，只需在页面添加： <canvas id="time" width="200px;"
-		// height="200px"></canvas>
+		// 画一个针式时钟，调用此方法时，只需在页面添加： 
+		// <canvas id="time" width="200px;" height="200px"></canvas>
 		time : function() {
 			var canvas, context;
 			canvas = markyun.dom.id("time");//画布ID
