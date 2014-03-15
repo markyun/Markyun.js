@@ -14,7 +14,7 @@
 ;(function() {
 	
 	// 缓存原始值
-	_$ = window.$; 
+	var _$ = window.$; 
 	
 	// 注册到window对象和$
 	var markyun = window.markyun = window.$ = function(selector) {
@@ -55,6 +55,7 @@
 		html : function(node) {
 			if (typeof node != 'undefined') {
 				this[0].innerHTML = node;
+				return this;
 			}
 			return this[0].innerHTML;
 		},
@@ -249,7 +250,8 @@
 		}
 	};
 
-	// Give the init function the markyun prototype for later instantiation
+	// markyun.fn缓存markyun.prototype;避免频繁的操作markyun.prototype
+	//内部处理了实例创建不用new去生成实例，处理了prototype保证多实例共享方法减少资源开支
 	markyun.fn.init.prototype = markyun.fn;
 
 	// 扩展markyun.js对象。用来在fn命名空间上增加新函数
