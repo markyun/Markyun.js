@@ -521,24 +521,69 @@
 
 		// 鼠标按键被按下事件捕获
 		getButton : function(event) {
-			if (document.implementation.hasFeature("MouseEvent", "2.0")) {
-				return event.button;
-			} else {
-				// 针对变态的IE
+			event = event || window.event;
+
+			// 使用适当的属性初始化一个对象变量
+			var buttons = {
+				'left': false,
+				'middle': false,
+				'right': false
+			};
+
+			// 按照W3C标准检查是否含有toString方法，
+			// 若包含toString()并返回MouseEvent，则可以按标准进行
+			if (event.toString && event.toString().indexOf('MouseEvent') != -1) {
 				switch (event.button) {
-				case 0:
-				case 1:
-				case 3:
-				case 5:
-				case 7:
-					return 0;
-				case 2:
-				case 6:
-					return 2;
-				case 4:
-					return 1;
+					case 0:
+						buttons.left = true;
+						break;
+					case 1:
+						buttons.middle = true;
+						break;
+					case 2:
+						buttons.right = true;
+						break;
+					default:
+						break;
 				}
+			} else if (event.button) {
+				// 变态IE的button事件检测方法
+				switch (event.button) {
+					case 1:
+						buttons.left = true;
+						break;
+					case 2:
+						buttons.right = true;
+						break;
+					case 3:
+						buttons.left = true;
+						buttons.right = true;
+						break;
+					case 4:
+						buttons.middle = true;
+						break;
+					case 5:
+						buttons.left = true;
+						buttons.middle = true;
+						break;
+					case 6:
+						buttons.middle = true;
+						buttons.right = true;
+						break;
+					case 7:
+						buttons.left = true;
+						buttons.middle = true;
+						buttons.right = true;
+						break;
+					default:
+						break;
+				}
+
+			} else {
+				return false;
 			}
+
+			return buttons;
 		},
 		// 获取剪贴板内容
 		getClipboardText : function(event) {
@@ -681,7 +726,7 @@
 			return str.replace(/^\s+|\s+$/g, '');
 		} 
 	};
-	// cooki工具集
+	// cookie工具集
 	markyun.cookie = {
 		setCookie : function(opt) {
 			var str = opt.name + "=" + escape(opt.value) + ";";
