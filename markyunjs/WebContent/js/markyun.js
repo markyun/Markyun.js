@@ -439,8 +439,8 @@
 		},
 		// 移除事件
 		removeEvent : function(element, type, handler) {
-			if (element.removeEnentListener) {
-				element.removeEnentListener(type, handler, false);
+			if (element.removeEventListener) {
+				element.removeEventListener(type, handler, false);
 			} else if (element.datachEvent) {
 				element.detachEvent('on' + type, handler);
 			} else {
