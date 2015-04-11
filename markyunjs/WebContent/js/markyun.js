@@ -1,26 +1,26 @@
 /*!
  *-------------------------------------------------------
  * MarkYun JavaScript Library v1.0.1(dev)
- * 
+ *
  * 使用原生JavaScript实现的一些常用功能，类似Jquery语法和结构，待完善
- * 
+ *
  * @author: Mygood@126.com || majinyun0802.mark@gmail.com
  * @Weibo ：  马云云_理想青年
- * @date  : 2014-02-10 
+ * @date  : 2015-04-11
  * @Github: https://github.com/markyun
  * -----------------------------------------------------
  */
 
 ;(function() {
-	
+
 	// 缓存原始值
-	var _$ = window.$; 
-	
+	var _$ = window.$;
+
 	// 注册到window对象和$
 	var markyun = window.markyun = window.$ = function(selector) {
 		return new markyun.fn.init(selector);
-	}; 
-	
+	};
+
 	// 版本
 	markyun.VERSION = '1.0.1(dev)';
 	//		isIE = !-[1,],	// 判断IE6|7|8 [ 不能判断IE9 ]
@@ -31,9 +31,9 @@
 
 	    constructor: markyun,
 		// initialize [初始化]
-		init : function(selector) { 
+		init : function(selector) {
 
-//			  "" ,  null ,  undefined 
+//			  "" ,  null ,  undefined
             if (!selector) {
                 selector=document;
             }
@@ -262,14 +262,14 @@
 		}
 		// obj用以扩展的对象，prop为扩展的函数集,如果参数只有一个，则扩展新函数到markyun对象上
 		for ( var i in property) {
-			obj[i] = property[i]; 
-		}  
+			obj[i] = property[i];
+		}
 		return obj;
 	};
 
 	// 给fn添加的功能，需要先选择节点，然后才能操作
 	// 调用方式： [$("id").val();]
-	markyun.extend(markyun.prototype,{ 
+	markyun.extend(markyun.prototype,{
 
 		get : function(name) {
 			return this[0][name];
@@ -281,21 +281,21 @@
 			} else {
 				return this[0].value;
 			}
-		}		
+		}
 	});
 	// 给markyun对象添加的功能（静态方法），可以直接点方法名 ，进行操作
 	// 调用方式： [$.getCookie("cookie名");]
-	
+
 	markyun.extend({
 
 		//放弃对$的控制权
 		noConflict: function (){
 			//注意别动了其他绑定$的库
 			if(window.$ === markyun){
-				window.$=_$; 
-			} 
+				window.$=_$;
+			}
 			//闭包里面的东西除非被window等宿主对象引用，否则是不可见的
-			//window.markyun = markyun; 
+			//window.markyun = markyun;
 			  return markyun;
 		} ,
 		//返回一个本地格式的时间值:"2014年3月4日 13:43:54"
@@ -308,7 +308,7 @@
 		        var now = new Date();
 		        var year = now.getFullYear(); //年
 		        var month = now.getMonth() + 1; //月
-		        var day = now.getDate(); //日 
+		        var day = now.getDate(); //日
 	            var hh = now.getHours();            //时
 	            var mm = now.getMinutes();          //分
 		        var clock = year + "";
@@ -361,7 +361,7 @@
 			return this;
 		}
 	});
-		
+
 	markyun.drag = {
 		init : function(o, oRoot) {
 			markyun.drag.obj = o;
@@ -616,7 +616,7 @@
 
 	//各种对DOM节点操作都在这
 	markyun.dom = {
-			
+
 		id : function(node) {
 			return document.getElementById(node);
 		},
@@ -724,7 +724,7 @@
 		// 去除2端空格
 		trim : function(str) {
 			return str.replace(/^\s+|\s+$/g, '');
-		} 
+		}
 	};
 	// cookie工具集
 	markyun.cookie = {
@@ -774,10 +774,10 @@
 				return new XMLHttpRequest();
 			} else if (typeof ActiveXObject != "undefined") { // 对原生的XHR（IE的早些版本）的支持
 				if (typeof arguments.callee.activeXString != "string") {
-					var versions = [ 
-					'MSXML2.XMLHttp.6.0', 
+					var versions = [
+					'MSXML2.XMLHttp.6.0',
 					'MSXML2.XMLHttp.3.0',
-					'MSXML2.XMLHttp' 
+					'MSXML2.XMLHttp'
 					], i, len;
 					for (i = 0, len = versions.length; i < len; i++) {
 						try {
@@ -851,7 +851,7 @@
 	};
 	// canvas工具，只包含2d部分，3d暂未实现
 	markyun.canvas = {
-		// 画一个针式时钟，调用此方法时，只需在页面添加： 
+		// 画一个针式时钟，调用此方法时，只需在页面添加：
 		// <canvas id="time" width="200px;" height="200px"></canvas>
 		time : function() {
 			var canvas, context;
@@ -864,7 +864,7 @@
 			})();
 
 			function gettime() {
-				var radius = Math.min(canvas.width / 2, canvas.height / 2) - 25; // 设置表盘半径 
+				var radius = Math.min(canvas.width / 2, canvas.height / 2) - 25; // 设置表盘半径
 				// 矩形取短的边
 				// -25
 				var centerX = canvas.width / 2;
@@ -968,6 +968,6 @@
 
 	// 浏览器对象
 	markyun.bom = {};
-			
- 
+
+
 })();
