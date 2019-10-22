@@ -4,8 +4,7 @@
  *
  * 使用原生JavaScript实现的一些常用功能，类似Jquery语法和结构，待完善
  *
- * @author: Mygood@126.com || majinyun0802.mark@gmail.com
- * @Weibo ：  马云云_理想青年
+ * @author: 马云云_理想青年
  * @date  : 2015-04-11
  * @Github: https://github.com/markyun
  * -----------------------------------------------------
